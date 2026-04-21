@@ -1,21 +1,3 @@
-Construyendo Shape: RectX
-Construyendo Rectangle: RectX
-Construyendo Shape: CírcX
-Construyendo Circle: CírcX
-Construyendo Shape: TriaX
-Construyendo Triangle: TriaX
-Construyendo Shape: SquaX
-Construyendo Rectangle: SquaX
-Construyendo Square: SquaX
-Destruyendo  Rectangle: RectX
-Destruyendo  Shape: RectX
-Destruyendo  Circle: CírcX
-Destruyendo  Shape: CírcX
-Destruyendo  Triangle: TriaX
-Destruyendo  Shape: TriaX
-Destruyendo  Square: SquaX
-Destruyendo  Rectangle: SquaX
-Destruyendo  Shape: SquaX
 >>>>>>>>>>>>>> Ahora viene la segunda parte
 Construyendo Shape: Mi Rectángulo
 Construyendo Rectangle: Mi Rectángulo
@@ -26,12 +8,12 @@ Construyendo Triangle: Mi Triángulo
 Construyendo Shape: Mi Cuadrado
 Construyendo Rectangle: Mi Cuadrado
 Construyendo Square: Mi Cuadrado
-Destruyendo  Rectangle: Mi Rectángulo
-Destruyendo  Shape: Mi Rectángulo
-Destruyendo  Circle: Mi Círculo
-Destruyendo  Shape: Mi Círculo
-Destruyendo  Triangle: Mi Triángulo
-Destruyendo  Shape: Mi Triángulo
 Destruyendo  Square: Mi Cuadrado
 Destruyendo  Rectangle: Mi Cuadrado
 Destruyendo  Shape: Mi Cuadrado
+Destruyendo  Triangle: Mi Triángulo
+Destruyendo  Shape: Mi Triángulo
+Destruyendo  Circle: Mi Círculo
+Destruyendo  Shape: Mi Círculo
+Destruyendo  Rectangle: Mi Rectángulo
+Destruyendo  Shape: Mi Rectángulo

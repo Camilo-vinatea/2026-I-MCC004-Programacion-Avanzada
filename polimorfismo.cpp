@@ -11,18 +11,29 @@ const int nObjs = 4;
 void DemoPolimorfismo() {
 
     ofstream ofs("shapes.txt");
-    ostream &os = ofs;
+    ostream &os = cout;
     // Crear 3 objetos bajo punteros de tipo Shape
     Shape *sv[nObjs] = {new Rectangle("RectX", os, 4.0, 5.0), 
                         new Circle   ("CírcX", os, 3.0),
                         new Triangle ("TriaX", os, 6.0, 2.0),
                         new Square   ("SquaX", os, 4.0)
                        };
+    cout << "Punto #1" << endl;
     for(int i = 0; i < nObjs; i++)
-        cout << sv[i]->GetName() 
-             << " -> área: " << sv[i]->GetArea() 
-             << endl;
-
+        cout << sv[i]->ToString() << endl;
+    cout << "Punto #2" << endl;
+    for(int i = 0; i < nObjs; i++)
+        cout << "obj: " << i << " -> " << *sv[i] << " mensaje posterior" << endl;
+    //. ===============
+    //.            cout << i
+    //             =========
+    //                  cout << " -> "
+    //                  ==============
+    //                            cout << *sv[i]
+    //                            ==============
+    //                                      cout << " mensaje posterior"
+    //                                      ============================
+    //                                                              cout             
     for(int i = 0; i < nObjs; i++)
         delete sv[i];
 
@@ -42,7 +53,7 @@ void DemoPolimorfismo() {
     
     for (const auto& forma : formas) {
         // Se llama a GetName() de Shape y GetArea() virtual
-        cout << forma->GetName() << " -> área: " << forma->GetArea() << endl;
+        cout << forma->ToString() << endl;
     }
 
     int a, b;

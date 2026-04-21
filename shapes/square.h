@@ -12,6 +12,11 @@ public:
     ~Square() {
         m_os << "Destruyendo  Square: " << GetName() << endl;
     }
+    string ToString() const override { 
+        ostringstream oss;
+        oss << "Square   : " << GetName() << " -> área: " << GetArea();
+        return oss.str(); 
+    };
 };
 
 #endif // __SQUARE_H__
