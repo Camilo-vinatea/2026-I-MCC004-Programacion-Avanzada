@@ -1,11 +1,13 @@
 #include <iostream> // cout, cin, endl
 #include <fstream>  // ofstream
+#include <sstream>  // istringstream
 #include "Pointers.h"
 #include "util.h"
 #include "array1.h"
 #include "array2.h"
 #include "array3.h"
 #include "array4.h"
+#include "matrix1.h"
 
 using namespace std;
 
@@ -227,4 +229,22 @@ void DemoPointersVector5(){
 }
 
 void DemoPointersMatrix1(){
+    cout << "Matriz1 demo \n";
+    Matrix1<TI> mat;
+    istringstream iss("3 4  1 2 3 4  5 6 7 8  9 10 11 12");
+    iss >> mat;
+
+    cout << "Matriz original:\n";
+    cout << mat;
+
+    cout << "Aplicando cuadrado:\n";
+    mat.ApplyFunctionToAll(Square<TI>);
+    cout << mat;
+
+    cout << "Sumandole valores extras (5 + 10):\n";
+    mat.ApplyFunctionToAll(AddX<TI>, 5, 10);
+    cout << mat;
+
+    ofstream ofs("outputMat1.txt");
+    ofs << mat;
 }
