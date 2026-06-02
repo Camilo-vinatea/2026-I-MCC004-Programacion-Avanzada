@@ -247,4 +247,21 @@ void DemoPointersMatrix1(){
 
     ofstream ofs("outputMat1.txt");
     ofs << mat;
+
+    // m2(2x2), m3(2x3), m4(3x2) → m3*m4 = (2x2), 5*m2 = (2x2), suma = (2x2)
+    cout << "\nDemo operadores: m1 = 5*m2 + m3*m4\n";
+    Matrix1<TI> m2, m3, m4;
+    istringstream iss2("2 2  1 0  0 1");
+    istringstream iss3("2 3  1 2 3  4 5 6");
+    istringstream iss4("3 2  7 8  9 10  11 12");
+    iss2 >> m2;
+    iss3 >> m3;
+    iss4 >> m4;
+
+    cout << "m2:\n" << m2;
+    cout << "m3:\n" << m3;
+    cout << "m4:\n" << m4;
+
+    Matrix1<TI> m1 = 5 * m2 + m3 * m4;
+    cout << "m1 = 5*m2 + m3*m4:\n" << m1;
 }

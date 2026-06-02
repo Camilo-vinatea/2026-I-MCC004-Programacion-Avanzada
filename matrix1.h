@@ -3,6 +3,7 @@
 #include <cassert>
 #include <functional>
 #include <iostream>
+#include <utility>
 
 using namespace std;
 
@@ -34,6 +35,11 @@ class Matrix1 {
         Matrix1()  { }
         ~Matrix1() { Destroy(); }
 
+        Matrix1(const Matrix1 &other);
+        Matrix1(Matrix1 &&other) noexcept;
+        Matrix1 &operator=(const Matrix1 &other);
+        Matrix1 &operator=(Matrix1 &&other) noexcept;
+
         /// Aloca memoria. Requiere `m_rows > 0` y `m_cols > 0` (asignados por `Read`).
         void     Create();
 
@@ -56,10 +62,22 @@ class Matrix1 {
 
         /// Imprime `rows cols \n` seguido de cada fila en su propia línea.
         /// @return referencia al stream para encadenamiento
-        ostream &Print(ostream &os);
+        ostream &Print(ostream &os) const;
 
         /// Libera memoria fila por fila, luego el arreglo de punteros. Pone `m_pMat = nullptr`.
         void Destroy();
+
+        /// Suma elemento a elemento. Requiere mismas dimensiones.
+        Matrix1 operator+(const Matrix1 &other) const;
+
+        /// Resta elemento a elemento. Requiere mismas dimensiones.
+        Matrix1 operator-(const Matrix1 &other) const;
+
+        /// Multiplicación matricial. Requiere `m_cols == other.m_rows`.
+        Matrix1 operator*(const Matrix1 &other) const;
+
+        /// Multiplicación por escalar.
+        Matrix1 operator*(T value) const;
 };
 
 template <typename T>
@@ -68,6 +86,50 @@ void Matrix1<T>::Create() {
     m_pMat = new T *[m_rows];
     for (size_t i = 0; i < m_rows; ++i)
         m_pMat[i] = new T[m_cols];
+}
+
+// Copy constructor
+template <typename T>
+Matrix1<T>::Matrix1(const Matrix1 &other) : m_rows(other.m_rows), m_cols(other.m_cols) {
+    Create();
+    for (size_t i = 0; i < m_rows; ++i)
+        for (size_t j = 0; j < m_cols; ++j)
+            m_pMat[i][j] = other.m_pMat[i][j];
+}
+
+// Move constructor
+template <typename T>
+Matrix1<T>::Matrix1(Matrix1 &&other) noexcept {
+    m_pMat = exchange(other.m_pMat, nullptr);
+    m_rows = exchange(other.m_rows, 0);
+    m_cols = exchange(other.m_cols, 0);
+}
+
+// Copy assignment
+template <typename T>
+Matrix1<T> &Matrix1<T>::operator=(const Matrix1 &other) {
+    if (this != &other) {
+        Destroy();
+        m_rows = other.m_rows;
+        m_cols = other.m_cols;
+        Create();
+        for (size_t i = 0; i < m_rows; ++i)
+            for (size_t j = 0; j < m_cols; ++j)
+                m_pMat[i][j] = other.m_pMat[i][j];
+    }
+    return *this;
+}
+
+// Move assignment
+template <typename T>
+Matrix1<T> &Matrix1<T>::operator=(Matrix1 &&other) noexcept {
+    if (this != &other) {
+        Destroy();
+        m_pMat = exchange(other.m_pMat, nullptr);
+        m_rows = exchange(other.m_rows, 0);
+        m_cols = exchange(other.m_cols, 0);
+    }
+    return *this;
 }
 
 template <typename T>
@@ -90,7 +152,7 @@ void Matrix1<T>::ApplyFunctionToAll(Func func, Args&& ...args) {
 }
 
 template <typename T>
-ostream &Matrix1<T>::Print(ostream &os) {
+ostream &Matrix1<T>::Print(ostream &os) const {
     os << m_rows << " " << m_cols << " \n";
     for (size_t i = 0; i < m_rows; ++i) {
         for (size_t j = 0; j < m_cols; ++j)
@@ -110,16 +172,76 @@ void Matrix1<T>::Destroy() {
     }
 }
 
-/// `is >> mat` delega a `mat.Read(is)`
+template <typename T>
+Matrix1<T> Matrix1<T>::operator+(const Matrix1 &other) const {
+    assert(m_rows == other.m_rows && m_cols == other.m_cols);
+    Matrix1 result;
+    result.m_rows = m_rows;
+    result.m_cols = m_cols;
+    result.Create();
+    for (size_t i = 0; i < m_rows; ++i)
+        for (size_t j = 0; j < m_cols; ++j)
+            result.m_pMat[i][j] = m_pMat[i][j] + other.m_pMat[i][j];
+    return result;
+}
+
+template <typename T>
+Matrix1<T> Matrix1<T>::operator-(const Matrix1 &other) const {
+    assert(m_rows == other.m_rows && m_cols == other.m_cols);
+    Matrix1 result;
+    result.m_rows = m_rows;
+    result.m_cols = m_cols;
+    result.Create();
+    for (size_t i = 0; i < m_rows; ++i)
+        for (size_t j = 0; j < m_cols; ++j)
+            result.m_pMat[i][j] = m_pMat[i][j] - other.m_pMat[i][j];
+    return result;
+}
+
+template <typename T>
+Matrix1<T> Matrix1<T>::operator*(const Matrix1 &other) const {
+    assert(m_cols == other.m_rows);
+    Matrix1 result;
+    result.m_rows = m_rows;
+    result.m_cols = other.m_cols;
+    result.Create();
+    for (size_t i = 0; i < m_rows; ++i)
+        for (size_t j = 0; j < other.m_cols; ++j) {
+            result.m_pMat[i][j] = T{};
+            for (size_t k = 0; k < m_cols; ++k)
+                result.m_pMat[i][j] += m_pMat[i][k] * other.m_pMat[k][j];
+        }
+    return result;
+}
+
+template <typename T>
+Matrix1<T> Matrix1<T>::operator*(T value) const {
+    Matrix1 result;
+    result.m_rows = m_rows;
+    result.m_cols = m_cols;
+    result.Create();
+    for (size_t i = 0; i < m_rows; ++i)
+        for (size_t j = 0; j < m_cols; ++j)
+            result.m_pMat[i][j] = m_pMat[i][j] * value;
+    return result;
+}
+
+/// is >> mat delega a mat.Read(is)
 template <typename T>
 istream &operator>>(istream &is, Matrix1<T> &mat) {
     return mat.Read(is);
 }
 
-/// `os << mat` delega a `mat.Print(os)`
+/// os << mat delega a mat.Print(os)
 template <typename T>
-ostream &operator<<(ostream &os, Matrix1<T> &mat) {
+ostream &operator<<(ostream &os, const Matrix1<T> &mat) {
     return mat.Print(os);
+}
+
+/// Escalar * matriz
+template <typename T>
+Matrix1<T> operator*(T value, const Matrix1<T> &mat) {
+    return mat * value;
 }
 
 #endif // __MATRIX1_H__
