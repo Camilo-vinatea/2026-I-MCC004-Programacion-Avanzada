@@ -88,7 +88,6 @@ void Matrix1<T>::Create() {
         m_pMat[i] = new T[m_cols];
 }
 
-// Copy constructor - deleted
 // Move constructor
 template <typename T>
 Matrix1<T>::Matrix1(Matrix1 &&other) noexcept {
@@ -97,7 +96,6 @@ Matrix1<T>::Matrix1(Matrix1 &&other) noexcept {
     m_cols = exchange(other.m_cols, 0);
 }
 
-// Copy assignment - deleted
 // Move assignment
 template <typename T>
 Matrix1<T> &Matrix1<T>::operator=(Matrix1 &&other) noexcept {
