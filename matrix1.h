@@ -68,13 +68,13 @@ class Matrix1 {
         void Destroy();
 
         /// Suma elemento a elemento.
-        Matrix1 operator+(Matrix1 other) const;
+        Matrix1 operator+(const Matrix1 &other) const;
 
         /// Resta elemento a elemento.
-        Matrix1 operator-(Matrix1 other) const;
+        Matrix1 operator-(const Matrix1 &other) const;
 
         /// Multiplicación matricial.
-        Matrix1 operator*(Matrix1 other) const;
+        Matrix1 operator*(const Matrix1 &other) const;
 
         /// Multiplicación por escalar.
         Matrix1 operator*(T value) const;
@@ -149,7 +149,7 @@ void Matrix1<T>::Destroy() {
 }
 
 template <typename T>
-Matrix1<T> Matrix1<T>::operator+(Matrix1 other) const {
+Matrix1<T> Matrix1<T>::operator+(const Matrix1 &other) const {
     assert(m_rows == other.m_rows && m_cols == other.m_cols);
     Matrix1 result;
     result.m_rows = m_rows;
@@ -162,7 +162,7 @@ Matrix1<T> Matrix1<T>::operator+(Matrix1 other) const {
 }
 
 template <typename T>
-Matrix1<T> Matrix1<T>::operator-(Matrix1 other) const {
+Matrix1<T> Matrix1<T>::operator-(const Matrix1 &other) const {
     assert(m_rows == other.m_rows && m_cols == other.m_cols);
     Matrix1 result;
     result.m_rows = m_rows;
@@ -175,7 +175,7 @@ Matrix1<T> Matrix1<T>::operator-(Matrix1 other) const {
 }
 
 template <typename T>
-Matrix1<T> Matrix1<T>::operator*(Matrix1 other) const {
+Matrix1<T> Matrix1<T>::operator*(const Matrix1 &other) const {
     assert(m_cols == other.m_rows);
     Matrix1 result;
     result.m_rows = m_rows;
