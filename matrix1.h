@@ -78,6 +78,10 @@ class Matrix1 {
 
         /// Multiplicación por escalar.
         Matrix1 operator*(T value) const;
+
+        /// Acceso a elemento (i,j). Primer [] retorna puntero a fila i; segundo [] accede columna j.
+        T *operator[](size_t i);
+        const T *operator[](size_t i) const;
 };
 
 template <typename T>
@@ -200,6 +204,18 @@ Matrix1<T> Matrix1<T>::operator*(T value) const {
         for (size_t j = 0; j < m_cols; ++j)
             result.m_pMat[i][j] = m_pMat[i][j] * value;
     return result;
+}
+
+template <typename T>
+T *Matrix1<T>::operator[](size_t i) {
+    assert(i < m_rows);
+    return m_pMat[i];
+}
+
+template <typename T>
+const T *Matrix1<T>::operator[](size_t i) const {
+    assert(i < m_rows);
+    return m_pMat[i];
 }
 
 /// is >> mat delega a mat.Read(is)

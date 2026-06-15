@@ -264,4 +264,13 @@ void DemoPointersMatrix1(){
 
     Matrix1<TI> m1 = 5*(m2) + (m3)*(m4);
     cout << "m1 = 5*m2 + m3*m4:\n" << m1;
+
+    cout << "\nDemo operador [][]: lectura y escritura\n";
+    cout << "m1[0][0]=" << m1[0][0] << "  m1[1][1]=" << m1[1][1] << "\n";
+    m1[0][0] = 999;
+    cout << "Tras m1[0][0]=999:\n" << m1;
+
+    cout << "Demo operador [][] const: solo lectura \n";
+    const Matrix1<TI> &cm1 = m1;
+    cout << "cm1[0][0]=" << cm1[0][0] << "  cm1[1][1]=" << cm1[1][1] << "\n";
 }
