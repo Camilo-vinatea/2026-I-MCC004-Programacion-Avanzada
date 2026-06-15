@@ -262,6 +262,6 @@ void DemoPointersMatrix1(){
     cout << "m3:\n" << m3;
     cout << "m4:\n" << m4;
 
-    Matrix1<TI> m1 = 5 * std::move(m2) + std::move(m3) * std::move(m4);
+    Matrix1<TI> m1 = 5*(m2) + (m3)*(m4);
     cout << "m1 = 5*m2 + m3*m4:\n" << m1;
 }
