@@ -5,7 +5,7 @@
 
 namespace py = pybind11;
 
-// Pointer-to-member types
+// Puntero que guarda qué operación ejecutar
 template <typename T>
 using BinOp = Matrix1<T> (Matrix1<T>::*)(const Matrix1<T>&) const;
 
