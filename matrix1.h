@@ -79,6 +79,9 @@ class Matrix1 {
         /// Multiplicación por escalar.
         Matrix1 operator*(T value) const;
 
+        size_t rows() const { return m_rows; }
+        size_t cols() const { return m_cols; }
+
         /// Acceso a elemento (i,j). Primer [] retorna puntero a fila i; segundo [] accede columna j.
         T *operator[](size_t i);
         const T *operator[](size_t i) const;

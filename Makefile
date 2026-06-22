@@ -28,4 +28,7 @@ $(TARGET): $(OBJS)
 clean:
 	rm -f $(OBJS) $(TARGET)
 
-.PHONY: all clean
+python_module:
+	python setup.py build_ext --inplace
+
+.PHONY: all clean python_module

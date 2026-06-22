@@ -1,0 +1,154 @@
+\doxysection{demo\+\_\+matrix Namespace Reference}
+\hypertarget{namespacedemo__matrix}{}\label{namespacedemo__matrix}\index{demo\_matrix@{demo\_matrix}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_a4e107967453a1dca7af56e730f20d2e8}{parse\+\_\+matrix\+\_\+string}} (s)
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_a35aaaf85553797a24226fac1bf837f96}{demo\+\_\+regex}} ()
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_ae60cf37e58447dbd990ca3b2f8d3af27}{demo\+\_\+threads}} ()
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_abc77f751178275c38651582079e3fdb6}{demo\+\_\+pointers\+\_\+matrix1}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_a98abf1d49421aed8ace0511d0eaeb001}{MATRIX\+\_\+\+RE}} = re.\+compile(r\textquotesingle{}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}s\texorpdfstring{$\ast$}{*}(\textbackslash{}d+)\textbackslash{}s+(\textbackslash{}d+)((?\+:\textbackslash{}s+-\/?\textbackslash{}d+(?\+:\textbackslash{}.\textbackslash{}d+)?)+)\textbackslash{}s\texorpdfstring{$\ast$}{*}\$\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Regex para formato "{}rows cols e00 e01 ..."{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}} = MatrixI()
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_ab0ded4beb14ec3ec6ab9973f67b24efe}{m2}} = MatrixI()
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_af73aa6b6f853f3508750ca7b71d2e184}{m3}} = MatrixI()
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_afdbd70c572ccad03d6f6f9c4aceec16f}{m\+\_\+sum}} = \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}} + \mbox{\hyperlink{namespacedemo__matrix_ab0ded4beb14ec3ec6ab9973f67b24efe}{m2}}
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_aee4c6ccc4d65258d74c6adb2dc8840e6}{m\+\_\+diff}} = \mbox{\hyperlink{namespacedemo__matrix_ab0ded4beb14ec3ec6ab9973f67b24efe}{m2}} -\/ \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}}
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_a581fc0e881af4cda577aa6f109f7566b}{m\+\_\+prod}} = \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacedemo__matrix_af73aa6b6f853f3508750ca7b71d2e184}{m3}}
+\item 
+int \mbox{\hyperlink{namespacedemo__matrix_ab7428b4b0973d848eb1033bff3beded3}{m\+\_\+scaled}} = \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}} \texorpdfstring{$\ast$}{*} 3
+\item 
+int \mbox{\hyperlink{namespacedemo__matrix_ad7904dfa120f360812f8d01caab18042}{m\+\_\+rscaled}} = 5 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}}
+\item 
+\mbox{\hyperlink{namespacedemo__matrix_ab026f1bcd06592efc8805c4e87314de2}{md}} = MatrixD()
+\item 
+float \mbox{\hyperlink{namespacedemo__matrix_a4ac4150fd8c8621ce7b8e8ecffbf3c83}{md\+\_\+prod}} = \mbox{\hyperlink{namespacedemo__matrix_ab026f1bcd06592efc8805c4e87314de2}{md}} \texorpdfstring{$\ast$}{*} 2.\+0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespacedemo__matrix_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacedemo__matrix_abc77f751178275c38651582079e3fdb6}\index{demo\_matrix@{demo\_matrix}!demo\_pointers\_matrix1@{demo\_pointers\_matrix1}}
+\index{demo\_pointers\_matrix1@{demo\_pointers\_matrix1}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{demo\_pointers\_matrix1()}{demo\_pointers\_matrix1()}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_abc77f751178275c38651582079e3fdb6} 
+demo\+\_\+matrix.\+demo\+\_\+pointers\+\_\+matrix1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Replica Python de DemoPointersMatrix1() de Pointers.cpp.
+Cubre: ApplyFunctionToAll equivalente, operadores aritméticos y acceso [][].
+\end{DoxyVerb}
+ \Hypertarget{namespacedemo__matrix_a35aaaf85553797a24226fac1bf837f96}\index{demo\_matrix@{demo\_matrix}!demo\_regex@{demo\_regex}}
+\index{demo\_regex@{demo\_regex}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{demo\_regex()}{demo\_regex()}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_a35aaaf85553797a24226fac1bf837f96} 
+demo\+\_\+matrix.\+demo\+\_\+regex (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Demuestra expresiones regulares para validar strings matriciales.\end{DoxyVerb}
+ \Hypertarget{namespacedemo__matrix_ae60cf37e58447dbd990ca3b2f8d3af27}\index{demo\_matrix@{demo\_matrix}!demo\_threads@{demo\_threads}}
+\index{demo\_threads@{demo\_threads}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{demo\_threads()}{demo\_threads()}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_ae60cf37e58447dbd990ca3b2f8d3af27} 
+demo\+\_\+matrix.\+demo\+\_\+threads (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Calcula m1 = 5*m2 + m3*m4 con dos threads concurrentes.
+Replica la expresion de DemoPointersMatrix1 en Pointers.cpp.
+\end{DoxyVerb}
+ \Hypertarget{namespacedemo__matrix_a4e107967453a1dca7af56e730f20d2e8}\index{demo\_matrix@{demo\_matrix}!parse\_matrix\_string@{parse\_matrix\_string}}
+\index{parse\_matrix\_string@{parse\_matrix\_string}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{parse\_matrix\_string()}{parse\_matrix\_string()}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_a4e107967453a1dca7af56e730f20d2e8} 
+demo\+\_\+matrix.\+parse\+\_\+matrix\+\_\+string (\begin{DoxyParamCaption}\item[{}]{s}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@brief Valida cadena con formato matricial y verifica conteo de elementos.
+@param s Cadena "rows cols e00 e01 ..."
+@return s sin espacios extremos
+@throws ValueError si formato invalido o conteo incorrecto
+\end{DoxyVerb}
+ 
+
+\label{doc-var-members}
+\Hypertarget{namespacedemo__matrix_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}\index{demo\_matrix@{demo\_matrix}!m1@{m1}}
+\index{m1@{m1}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{m1}{m1}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085} 
+demo\+\_\+matrix.\+m1 = MatrixI()}
+
+\Hypertarget{namespacedemo__matrix_ab0ded4beb14ec3ec6ab9973f67b24efe}\index{demo\_matrix@{demo\_matrix}!m2@{m2}}
+\index{m2@{m2}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{m2}{m2}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_ab0ded4beb14ec3ec6ab9973f67b24efe} 
+demo\+\_\+matrix.\+m2 = MatrixI()}
+
+\Hypertarget{namespacedemo__matrix_af73aa6b6f853f3508750ca7b71d2e184}\index{demo\_matrix@{demo\_matrix}!m3@{m3}}
+\index{m3@{m3}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{m3}{m3}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_af73aa6b6f853f3508750ca7b71d2e184} 
+demo\+\_\+matrix.\+m3 = MatrixI()}
+
+\Hypertarget{namespacedemo__matrix_aee4c6ccc4d65258d74c6adb2dc8840e6}\index{demo\_matrix@{demo\_matrix}!m\_diff@{m\_diff}}
+\index{m\_diff@{m\_diff}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{m\_diff}{m\_diff}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_aee4c6ccc4d65258d74c6adb2dc8840e6} 
+demo\+\_\+matrix.\+m\+\_\+diff = \mbox{\hyperlink{namespacedemo__matrix_ab0ded4beb14ec3ec6ab9973f67b24efe}{m2}} -\/ \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}}}
+
+\Hypertarget{namespacedemo__matrix_a581fc0e881af4cda577aa6f109f7566b}\index{demo\_matrix@{demo\_matrix}!m\_prod@{m\_prod}}
+\index{m\_prod@{m\_prod}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{m\_prod}{m\_prod}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_a581fc0e881af4cda577aa6f109f7566b} 
+demo\+\_\+matrix.\+m\+\_\+prod = \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacedemo__matrix_af73aa6b6f853f3508750ca7b71d2e184}{m3}}}
+
+\Hypertarget{namespacedemo__matrix_ad7904dfa120f360812f8d01caab18042}\index{demo\_matrix@{demo\_matrix}!m\_rscaled@{m\_rscaled}}
+\index{m\_rscaled@{m\_rscaled}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{m\_rscaled}{m\_rscaled}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_ad7904dfa120f360812f8d01caab18042} 
+int demo\+\_\+matrix.\+m\+\_\+rscaled = 5 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}}}
+
+\Hypertarget{namespacedemo__matrix_ab7428b4b0973d848eb1033bff3beded3}\index{demo\_matrix@{demo\_matrix}!m\_scaled@{m\_scaled}}
+\index{m\_scaled@{m\_scaled}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{m\_scaled}{m\_scaled}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_ab7428b4b0973d848eb1033bff3beded3} 
+int demo\+\_\+matrix.\+m\+\_\+scaled = \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}} \texorpdfstring{$\ast$}{*} 3}
+
+\Hypertarget{namespacedemo__matrix_afdbd70c572ccad03d6f6f9c4aceec16f}\index{demo\_matrix@{demo\_matrix}!m\_sum@{m\_sum}}
+\index{m\_sum@{m\_sum}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{m\_sum}{m\_sum}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_afdbd70c572ccad03d6f6f9c4aceec16f} 
+demo\+\_\+matrix.\+m\+\_\+sum = \mbox{\hyperlink{namespacedemo__matrix_a87b0c8ca216103c902a19c854c943085}{m1}} + \mbox{\hyperlink{namespacedemo__matrix_ab0ded4beb14ec3ec6ab9973f67b24efe}{m2}}}
+
+\Hypertarget{namespacedemo__matrix_a98abf1d49421aed8ace0511d0eaeb001}\index{demo\_matrix@{demo\_matrix}!MATRIX\_RE@{MATRIX\_RE}}
+\index{MATRIX\_RE@{MATRIX\_RE}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{MATRIX\_RE}{MATRIX\_RE}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_a98abf1d49421aed8ace0511d0eaeb001} 
+demo\+\_\+matrix.\+MATRIX\+\_\+\+RE = re.\+compile(r\textquotesingle{}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}s\texorpdfstring{$\ast$}{*}(\textbackslash{}d+)\textbackslash{}s+(\textbackslash{}d+)((?\+:\textbackslash{}s+-\/?\textbackslash{}d+(?\+:\textbackslash{}.\textbackslash{}d+)?)+)\textbackslash{}s\texorpdfstring{$\ast$}{*}\$\textquotesingle{})}
+
+
+
+Regex para formato "{}rows cols e00 e01 ..."{}. 
+
+Acepta enteros y decimales. \Hypertarget{namespacedemo__matrix_ab026f1bcd06592efc8805c4e87314de2}\index{demo\_matrix@{demo\_matrix}!md@{md}}
+\index{md@{md}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{md}{md}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_ab026f1bcd06592efc8805c4e87314de2} 
+demo\+\_\+matrix.\+md = MatrixD()}
+
+\Hypertarget{namespacedemo__matrix_a4ac4150fd8c8621ce7b8e8ecffbf3c83}\index{demo\_matrix@{demo\_matrix}!md\_prod@{md\_prod}}
+\index{md\_prod@{md\_prod}!demo\_matrix@{demo\_matrix}}
+\doxysubsubsection{\texorpdfstring{md\_prod}{md\_prod}}
+{\footnotesize\ttfamily \label{namespacedemo__matrix_a4ac4150fd8c8621ce7b8e8ecffbf3c83} 
+float demo\+\_\+matrix.\+md\+\_\+prod = \mbox{\hyperlink{namespacedemo__matrix_ab026f1bcd06592efc8805c4e87314de2}{md}} \texorpdfstring{$\ast$}{*} 2.\+0}
+

@@ -42,3 +42,8 @@
 
 main
 *.txt
+*.pyd
+.vscode
+build
+html
+latex

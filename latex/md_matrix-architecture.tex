@@ -1,0 +1,156 @@
+\chapter{Matrices Architecture -\/ PR \#12 }
+\hypertarget{md_matrix-architecture}{}\label{md_matrix-architecture}\index{Matrices Architecture -\/ PR \#12@{Matrices Architecture -\/ PR \#12}}
+\label{md_matrix-architecture_autotoc_md0}%
+\Hypertarget{md_matrix-architecture_autotoc_md0}%
+\hypertarget{md_matrix-architecture_autotoc_md1}{}\doxysection{\texorpdfstring{Evolution\+: Array → Matrix}{Evolution\+: Array → Matrix}}\label{md_matrix-architecture_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{flowchart\ TB}
+\DoxyCodeLine{\ \ \ \ subgraph\ Arrays["{}Arrays\ (1D\ -\/\ heap)"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ A1["{}Array1<br/>TP*\ +\ functions<br/>No\ class\ encapsulation"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ A2["{}Array2<br/>TI*\ +\ functions\ +\ stream\ params"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ A3["{}Array3<br/>Template\ class<br/>ApplyFunctionToAll"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ A4["{}Array4<br/>Template\ class<br/>Stream\ operators\ >>\ <<"{}]}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ subgraph\ Matrix["{}Matrix1\ (2D\ -\/\ heap)"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ M1["{}Matrix1<T><br/>T**\ m\_pMat\ →\ [row0*,\ row1*,\ ...]<br/>Create()\ →\ new\ T*[rows],\ then\ new\ T[cols]\ per\ row"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ M1F["{}Member\ Functions"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ M1F\ -\/-\/-\/\ M1Create["{}Create()\ -\/\ allocate\ rows\ then\ cols"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ M1F\ -\/-\/-\/\ M1Read["{}Read(stream)\ -\/\ read\ rows\ cols,\ Create(),\ read\ elements"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ M1F\ -\/-\/-\/\ M1Print["{}Print(stream)\ -\/\ format:\ rows\ cols\ \(\backslash\)\(\backslash\)n\ elements"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ M1F\ -\/-\/-\/\ M1Destroy["{}Destroy()\ -\/\ delete[]\ each\ row,\ delete[]\ rowptrs"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ M1F\ -\/-\/-\/\ M1Apply["{}ApplyFunctionToAll(func,\ args...)\ -\/\ variadic\ template"{}]}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ M1Ops["{}Operators"{}]}
+\DoxyCodeLine{\ \ \ \ M1Ops\ -\/-\/-\/\ M1Add["{}operator+\ (element-\/wise)"{}]}
+\DoxyCodeLine{\ \ \ \ M1Ops\ -\/-\/-\/\ M1Sub["{}operator-\/\ (element-\/wise)"{}]}
+\DoxyCodeLine{\ \ \ \ M1Ops\ -\/-\/-\/\ M1MulMat["{}operator*\ (matrix\ multiplication)"{}]}
+\DoxyCodeLine{\ \ \ \ M1Ops\ -\/-\/-\/\ M1MulScal["{}operator*\ (scalar)"{}]}
+\DoxyCodeLine{\ \ \ \ M1Ops\ -\/-\/-\/\ M1In["{}operator>>\ (calls\ Read)"{}]}
+\DoxyCodeLine{\ \ \ \ M1Ops\ -\/-\/-\/\ M1Out["{}operator<<\ (calls\ Print)"{}]}
+\DoxyCodeLine{\ \ \ \ M1Ops\ -\/-\/-\/\ M1ScalMul["{}operator*\ (scalar,\ lhs)\ -\/\ 5\ *\ mat"{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ M1\ -\/-\/>\ M1Ops}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ Arrays\ -\/-\/>|"{}Template\ class<br/>evolution"{}|\ M1}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ style\ Arrays\ fill:\#1a1a2e,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ Matrix\ fill:\#16213e,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ M1Ops\ fill:\#0f3460,color:\#fff}
+
+\end{DoxyCode}
+\hypertarget{md_matrix-architecture_autotoc_md2}{}\doxysection{\texorpdfstring{Internal Storage Structure}{Internal Storage Structure}}\label{md_matrix-architecture_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{graph\ LR}
+\DoxyCodeLine{\ \ \ \ subgraph\ Memory["{}Memory\ Layout"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ POINTERS["{}m\_pMat\ (T**)<br/>heap\ allocated"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ROW0["{}row\ 0:\ [e00\ e01\ e02\ ...\ e0(C-\/1)]"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ROW1["{}row\ 1:\ [e10\ e11\ e12\ ...\ e1(C-\/1)]"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ROW2["{}..."{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ROWn["{}row\ (R-\/1):\ [(R-\/1)0\ (R-\/1)1\ ...]"{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ POINTERS\ -\/-\/>\ ROW0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ POINTERS\ -\/-\/>\ ROW1}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ POINTERS\ -\/-\/>\ ROW2}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ POINTERS\ -\/-\/>\ ROWn}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ style\ Memory\ fill:\#0f3460,color:\#fff}
+
+\end{DoxyCode}
+\hypertarget{md_matrix-architecture_autotoc_md3}{}\doxysection{\texorpdfstring{Class Definition}{Class Definition}}\label{md_matrix-architecture_autotoc_md3}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{classDiagram}
+\DoxyCodeLine{\ \ \ \ class\ Matrix1\string~T\string~\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +T**\ m\_pMat}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +size\_t\ m\_rows}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +size\_t\ m\_cols}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +Matrix1()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +\string~Matrix1()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +Matrix1(copy)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +Matrix1(move)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +operator=(copy)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +operator=(move)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +Create()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +Read(istream)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +ApplyFunctionToAll(func,\ args...)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +Print(ostream)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +Destroy()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +operator+(Matrix1)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +operator-\/(Matrix1)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +operator*(Matrix1)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ +operator*(T)}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ Matrix1\ -\/-\/|>\ "{}copyable"{}}
+\DoxyCodeLine{\ \ \ \ Matrix1\ -\/-\/|>\ "{}movable"{}}
+
+\end{DoxyCode}
+\hypertarget{md_matrix-architecture_autotoc_md4}{}\doxysection{\texorpdfstring{Data Flow}{Data Flow}}\label{md_matrix-architecture_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{flowchart\ LR}
+\DoxyCodeLine{\ \ \ \ SS["{}istringstream<br/>'3\ 4\ 1\ 2\ 3\ 4\ 5\ 6\ 7\ 8\ 9\ 10\ 11\ 12'"{}]}
+\DoxyCodeLine{\ \ \ \ SS\ -\/-\/>|"{}>>"{}|\ READ["{}Read()"{}]}
+\DoxyCodeLine{\ \ \ \ READ\ -\/-\/>|rows=3\ cols=4|\ CREATE["{}Create()"{}]}
+\DoxyCodeLine{\ \ \ \ CREATE\ -\/-\/>|new\ T*[3]|\ PTR["{}m\_pMat"{}]}
+\DoxyCodeLine{\ \ \ \ CREATE\ -\/-\/>|new\ T[4]\ x3|\ ROWS["{}row\ allocations"{}]}
+\DoxyCodeLine{\ \ \ \ READ\ -\/-\/>|read\ elements|\ ROWS}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ PTR\ -\/-\/>|m\_pMat[0]|\ R0["{}[1\ 2\ 3\ 4]"{}]}
+\DoxyCodeLine{\ \ \ \ PTR\ -\/-\/>|m\_pMat[1]|\ R1["{}[5\ 6\ 7\ 8]"{}]}
+\DoxyCodeLine{\ \ \ \ PTR\ -\/-\/>|m\_pMat[2]|\ R2["{}[9\ 10\ 11\ 12]"{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ style\ SS\ fill:\#1a1a2e,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ READ\ fill:\#16213e,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ CREATE\ fill:\#16213e,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ PTR\ fill:\#0f3460,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ ROWS\ fill:\#0f3460,color:\#fff}
+
+\end{DoxyCode}
+\hypertarget{md_matrix-architecture_autotoc_md5}{}\doxysection{\texorpdfstring{Matrix Multiplication (A \texorpdfstring{$\ast$}{*} B)}{Matrix Multiplication (A \texorpdfstring{$\ast$}{*} B)}}\label{md_matrix-architecture_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{flowchart\ LR}
+\DoxyCodeLine{\ \ \ \ subgraph\ A["{}Matrix\ A\ (MxK)"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ A0["{}m\_rows=M,\ m\_cols=K"{}]}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ B["{}Matrix\ B\ (KxN)"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ B0["{}m\_rows=K,\ m\_cols=N"{}]}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ R["{}Result\ (MxN)"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ R0["{}m\_rows=M,\ m\_cols=N"{}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ R0\ -\/-\/>|R[i][j]\ =\ sum|\ SUM["{}Σ\ A[i][k]\ *\ B[k][j]"{}]}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ A\ -\/-\/>|cols=K|\ SUM}
+\DoxyCodeLine{\ \ \ \ B\ -\/-\/>|rows=K|\ SUM}
+\DoxyCodeLine{\ \ \ \ SUM\ -\/-\/>\ R}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ style\ A\ fill:\#1a1a2e,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ B\ fill:\#1a1a2e,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ R\ fill:\#16213e,color:\#fff}
+
+\end{DoxyCode}
+\hypertarget{md_matrix-architecture_autotoc_md6}{}\doxysection{\texorpdfstring{Type Aliases}{Type Aliases}}\label{md_matrix-architecture_autotoc_md6}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{graph\ TD}
+\DoxyCodeLine{\ \ \ \ T["{}types.h"{}]}
+\DoxyCodeLine{\ \ \ \ T\ -\/-\/>\ TI["{}using\ TI\ =\ int"{}]}
+\DoxyCodeLine{\ \ \ \ T\ -\/-\/>\ TP["{}using\ TP\ =\ int"{}]}
+\DoxyCodeLine{\ \ \ \ T\ -\/-\/>\ T1["{}using\ T1\ =\ int32\_t"{}]}
+\DoxyCodeLine{\ \ \ \ T\ -\/-\/>\ T5["{}using\ T5\ =\ double"{}]}
+\DoxyCodeLine{\ \ \ \ T\ -\/-\/>\ T8["{}using\ T8\ =\ int"{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ TI\ -\/-\/>|used\ in|\ M1Demo["{}DemoPointersMatrix1()<br/>Matrix1<TI>\ mat;"{}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ style\ T\ fill:\#1a1a2e,color:\#fff}
+\DoxyCodeLine{\ \ \ \ style\ TI\ fill:\#0f3460,color:\#fff}
+
+\end{DoxyCode}
+ 

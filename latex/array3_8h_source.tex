@@ -1,0 +1,61 @@
+\doxysection{array3.\+h}
+\hypertarget{array3_8h_source}{}\label{array3_8h_source}\mbox{\hyperlink{array3_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_ARRAY3\_H\_\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_ARRAY3\_H\_\_}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\#include\ <\_\_nullptr>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_array3_a3420a00346475245ea8faab6a14b4ac1}{Array3}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ T\ \ \ \ \ \ *m\_pArray\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ m\_size\ \ \ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_array3_a3420a00346475245ea8faab6a14b4ac1}{Array3}}()\ \ \ \ \ \ \{\ \ \}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_array3_a82add0611af13a0eadd3480ff541c8f6}{\string~Array3}}()\ \ \ \ \ \{\ \mbox{\hyperlink{class_array3_a59cf4d96871c8b5766db4f4dcaaa1527}{Destroy}}();\ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a5ee3fcedc2dea7f600c86f9927323095}{Create}}()\ \{\ m\_pArray\ =\ \textcolor{keyword}{new}\ T[m\_size];\ \};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a69989f729dc77a99d4f635cf5285eb2e}{Read}}(istream\ \&is);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a1a786084ddf4e514beb05c11044d66fc}{ApplyFunctionToAll}}(Func\ func);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a704447ff6276d79f66fe8f244463f17c}{Print}}(ostream\ \&os);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a59cf4d96871c8b5766db4f4dcaaa1527}{Destroy}}();}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a69989f729dc77a99d4f635cf5285eb2e}{Array3<T>::Read}}(istream\ \&is)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ is\ >>\ m\_size;}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_array3_a5ee3fcedc2dea7f600c86f9927323095}{Create}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_size;\ ++i)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ is\ >>\ m\_pArray[i];}
+\DoxyCodeLine{00031\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a1a786084ddf4e514beb05c11044d66fc}{Array3<T>::ApplyFunctionToAll}}(Func\ func)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_size;\ ++i)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ func(m\_pArray[i]);}
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a704447ff6276d79f66fe8f244463f17c}{Array3<T>::Print}}(ostream\ \&os)\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ os\ <<\ m\_size\ <<\ \textcolor{stringliteral}{"{}\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_size;\ ++i)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ os\ <<\ m\_pArray[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00045\ \ \ \ \ os\ <<\ endl;}
+\DoxyCodeLine{00046\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_array3_a59cf4d96871c8b5766db4f4dcaaa1527}{Array3<T>::Destroy}}()\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_pArray\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ m\_pArray;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ m\_pArray\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_ARRAY3\_H\_\_}}
+
+\end{DoxyCode}

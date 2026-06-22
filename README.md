@@ -24,6 +24,9 @@ g++ -std=c++2b main.cpp util.cpp -o main
 ├── array4.h              # Nivel 4: clase genérica con operator<< / >>
 │
 ├── matrix1.h             # Matriz 2D dinámica (heap), plantilla completa
+├── matrix1_py.cpp        # Bindings pybind11 de Matrix1<T> para Python
+├── setup.py              # Compilación del módulo Python (setuptools)
+├── demo_matrix.py        # Demo Python: regex, threads, réplica DemoPointersMatrix1
 │
 ├── complex.h / .cpp      # Clase Complex con semántica de valor
 ├── BitSigno.h / .cpp     # Manipulación de bit de signo
@@ -113,6 +116,67 @@ Descomentar la línea correspondiente para ejecutar cada demo:
 // DemoPointersVector4();    // clase Array4
 // DemoPointersVector5();    // Array4 con operator<< / >>
 DemoPointersMatrix1();       // Matrix1 + operadores aritméticos
+```
+
+## Bindings Python — `matrix1`
+
+`Matrix1<int>` y `Matrix1<double>` expuestos como `MatrixI` / `MatrixD` vía pybind11.
+
+### Compilar el módulo
+
+```bash
+pip install pybind11 setuptools
+python setup.py build_ext --inplace
+```
+
+O con el Makefile:
+
+```bash
+make python_module
+```
+
+### Usar en Python
+
+```python
+from matrix1 import MatrixI, MatrixD
+
+m = MatrixI()
+m.from_string("2 3  1 2 3  4 5 6")
+print(m.rows, m.cols)   # 2 3
+print(m)
+
+m2 = MatrixI(); m2.from_string("2 3  7 8 9  10 11 12")
+print(m + m2)           # suma elemento a elemento
+print(5 * m)            # escalar × matriz
+print(m[0][1])          # lectura m[i][j]
+m[0][1] = 99            # escritura m[i][j]
+```
+
+### `demo_matrix.py` — features demostradas
+
+| Función | Descripción |
+|---|---|
+| `parse_matrix_string(s)` | Valida formato `"rows cols e00 ..."` con `re`; lanza `ValueError` si inválido |
+| `demo_regex()` | Prueba 4 casos (2 OK, 2 error) con `MATRIX_RE` |
+| `demo_threads()` | Calcula `5*m2` y `m3*m4` en threads separados, suma resultados |
+| `demo_pointers_matrix1()` | Réplica de `DemoPointersMatrix1()` (Pointers.cpp): cuadrado, AddX, operadores, `[][]` |
+
+Toda función tiene docstring con tags Doxygen (`@brief`, `@param`, `@return`, `@throws`).
+
+### Patrón de punteros a método (dispatch)
+
+`matrix1_py.cpp` usa punteros a método explícitamente para satisfacer requerimiento académico:
+
+```cpp
+// dispatch via .*
+Matrix1<T> dispatch(Matrix1<T>& lhs, const Matrix1<T>& rhs, BinOp<T> method) {
+    return (lhs.*method)(rhs);   // equivalente a lhs + rhs
+}
+
+// dispatch via ->*
+Matrix1<T> dispatch_ptr(Matrix1<T>* pLhs, const Matrix1<T>& rhs, BinOp<T> method) {
+    return (pLhs->*method)(rhs); // equivalente a (*pLhs) + rhs
+}
 ```
 
 ## Ramas del repositorio

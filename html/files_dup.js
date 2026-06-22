@@ -1,0 +1,26 @@
+var files_dup =
+[
+    [ "array1.cpp", "array1_8cpp.html", "array1_8cpp" ],
+    [ "array1.h", "array1_8h.html", "array1_8h" ],
+    [ "array2.h", "array2_8h.html", "array2_8h" ],
+    [ "array3.h", "array3_8h.html", "array3_8h" ],
+    [ "array4.h", "array4_8h.html", "array4_8h" ],
+    [ "BitSigno.cpp", "_bit_signo_8cpp.html", "_bit_signo_8cpp" ],
+    [ "BitSigno.h", "_bit_signo_8h.html", "_bit_signo_8h" ],
+    [ "complex.cpp", "complex_8cpp.html", "complex_8cpp" ],
+    [ "complex.h", "complex_8h.html", "complex_8h" ],
+    [ "demo_matrix.py", "demo__matrix_8py.html", "demo__matrix_8py" ],
+    [ "functions.cpp", "functions_8cpp.html", null ],
+    [ "functions.h", "functions_8h.html", null ],
+    [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
+    [ "matrix1.h", "matrix1_8h.html", "matrix1_8h" ],
+    [ "matrix1_py.cpp", "matrix1__py_8cpp.html", "matrix1__py_8cpp" ],
+    [ "Pointers.cpp", "_pointers_8cpp.html", "_pointers_8cpp" ],
+    [ "Pointers.h", "_pointers_8h.html", "_pointers_8h" ],
+    [ "polimorfismo.cpp", "polimorfismo_8cpp.html", "polimorfismo_8cpp" ],
+    [ "polimorfismo.h", "polimorfismo_8h.html", "polimorfismo_8h" ],
+    [ "setup.py", "setup_8py.html", "setup_8py" ],
+    [ "types.h", "types_8h.html", "types_8h" ],
+    [ "util.cpp", "util_8cpp.html", "util_8cpp" ],
+    [ "util.h", "util_8h.html", "util_8h" ]
+];

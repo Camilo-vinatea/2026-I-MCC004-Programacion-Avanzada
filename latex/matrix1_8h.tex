@@ -1,0 +1,71 @@
+\doxysection{matrix1.\+h File Reference}
+\hypertarget{matrix1_8h}{}\label{matrix1_8h}\index{matrix1.h@{matrix1.h}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_matrix1}{Matrix1$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{matrix1_8h_aa853d02f39991f30b130123f8d40e1c9}{PrintM}} (T \&n, ostream \&os)
+\begin{DoxyCompactList}\small\item\em Imprime un elemento seguido de espacio. Para usar con {\ttfamily Apply\+Function\+To\+All}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\istream \& \mbox{\hyperlink{matrix1_8h_a7024afc7b73105a5747fa61a15b44110}{operator$>$$>$}} (istream \&is, \mbox{\hyperlink{class_matrix1}{Matrix1}}$<$ T $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em is \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} mat delega a mat.\+Read(is) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\ostream \& \mbox{\hyperlink{matrix1_8h_aed9108a901d7acbae2cdf208a99b6617}{operator$<$$<$}} (ostream \&os, const \mbox{\hyperlink{class_matrix1}{Matrix1}}$<$ T $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em os \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} mat delega a mat.\+Print(os) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{class_matrix1}{Matrix1}}$<$ T $>$ \mbox{\hyperlink{matrix1_8h_a0b20829a3fda303802f4340b0913549a}{operator\texorpdfstring{$\ast$}{*}}} (T value, const \mbox{\hyperlink{class_matrix1}{Matrix1}}$<$ T $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em Escalar \texorpdfstring{$\ast$}{*} matriz\+: 5 \texorpdfstring{$\ast$}{*} mat delega a mat \texorpdfstring{$\ast$}{*} 5. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{matrix1_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{matrix1_8h_a0b20829a3fda303802f4340b0913549a}\index{matrix1.h@{matrix1.h}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!matrix1.h@{matrix1.h}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \label{matrix1_8h_a0b20829a3fda303802f4340b0913549a} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_matrix1}{Matrix1}}$<$ T $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{T}]{value}{, }\item[{const \mbox{\hyperlink{class_matrix1}{Matrix1}}$<$ T $>$ \&}]{mat}{}\end{DoxyParamCaption})}
+
+
+
+Escalar \texorpdfstring{$\ast$}{*} matriz\+: 5 \texorpdfstring{$\ast$}{*} mat delega a mat \texorpdfstring{$\ast$}{*} 5. 
+
+\Hypertarget{matrix1_8h_aed9108a901d7acbae2cdf208a99b6617}\index{matrix1.h@{matrix1.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!matrix1.h@{matrix1.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{matrix1_8h_aed9108a901d7acbae2cdf208a99b6617} 
+template$<$typename T$>$ \\
+ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os}{, }\item[{const \mbox{\hyperlink{class_matrix1}{Matrix1}}$<$ T $>$ \&}]{mat}{}\end{DoxyParamCaption})}
+
+
+
+os \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} mat delega a mat.\+Print(os) 
+
+\Hypertarget{matrix1_8h_a7024afc7b73105a5747fa61a15b44110}\index{matrix1.h@{matrix1.h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!matrix1.h@{matrix1.h}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily \label{matrix1_8h_a7024afc7b73105a5747fa61a15b44110} 
+template$<$typename T$>$ \\
+istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{is}{, }\item[{\mbox{\hyperlink{class_matrix1}{Matrix1}}$<$ T $>$ \&}]{mat}{}\end{DoxyParamCaption})}
+
+
+
+is \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} mat delega a mat.\+Read(is) 
+
+\Hypertarget{matrix1_8h_aa853d02f39991f30b130123f8d40e1c9}\index{matrix1.h@{matrix1.h}!PrintM@{PrintM}}
+\index{PrintM@{PrintM}!matrix1.h@{matrix1.h}}
+\doxysubsubsection{\texorpdfstring{PrintM()}{PrintM()}}
+{\footnotesize\ttfamily \label{matrix1_8h_aa853d02f39991f30b130123f8d40e1c9} 
+template$<$typename T$>$ \\
+void PrintM (\begin{DoxyParamCaption}\item[{T \&}]{n}{, }\item[{ostream \&}]{os}{}\end{DoxyParamCaption})}
+
+
+
+Imprime un elemento seguido de espacio. Para usar con {\ttfamily Apply\+Function\+To\+All}. 
+
