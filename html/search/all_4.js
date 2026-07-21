@@ -1,26 +1,4 @@
 var searchData=
 [
-  ['a_20b_0',['Matrix Multiplication (A * B)',['../md_matrix-architecture.html#autotoc_md5',1,'']]],
-  ['a_20método_20dispatch_1',['Patrón de punteros a método (dispatch)',['../md__r_e_a_d_m_e.html#autotoc_md22',1,'']]],
-  ['activadas_20en_20main_20cpp_2',['Demos activadas en &lt;span class=&quot;tt&quot;&gt;main.cpp&lt;/span&gt;',['../md__r_e_a_d_m_e.html#autotoc_md17',1,'']]],
-  ['addx_3',['AddX',['../_pointers_8cpp.html#ae63425a68efde144f5d53ebd65638924',1,'Pointers.cpp']]],
-  ['aliases_4',['Type Aliases',['../md_matrix-architecture.html#autotoc_md6',1,'']]],
-  ['almacenamiento_20interno_5',['Almacenamiento interno',['../class_matrix1.html#autotoc_md8',1,'']]],
-  ['applyfunctiontoall_6',['ApplyFunctionToAll',['../class_array3.html#a1a786084ddf4e514beb05c11044d66fc',1,'Array3::ApplyFunctionToAll()'],['../class_array4.html#a776ae2075020fafc09faf14af6b6215c',1,'Array4::ApplyFunctionToAll()'],['../class_matrix1.html#a937821bfb8c5083ff490e8b97062644a',1,'Matrix1::ApplyFunctionToAll()']]],
-  ['applyfunctiontoall2_7',['ApplyFunctionToAll2',['../array2_8h.html#ac87b100b72bf194aa05d92a5a131ca53',1,'array2.h']]],
-  ['architecture_20pr_2012_8',['Matrices Architecture - PR #12',['../md_matrix-architecture.html',1,'']]],
-  ['area_9',['Area',['../types_8h.html#a98edca47320b20e1c9400ee9f0795788',1,'types.h']]],
-  ['array_20→_20matrix_10',['Evolution: Array → Matrix',['../md_matrix-architecture.html#autotoc_md1',1,'']]],
-  ['array1_20→_20array4_20—_20evolución_20del_20arreglo_20dinámico_11',['&lt;span class=&quot;tt&quot;&gt;Array1&lt;/span&gt; → &lt;span class=&quot;tt&quot;&gt;Array4&lt;/span&gt; — Evolución del arreglo dinámico',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
-  ['array1_2ecpp_12',['array1.cpp',['../array1_8cpp.html',1,'']]],
-  ['array1_2eh_13',['array1.h',['../array1_8h.html',1,'']]],
-  ['array2_2eh_14',['array2.h',['../array2_8h.html',1,'']]],
-  ['array3_15',['Array3',['../class_array3.html',1,'Array3&lt; T &gt;'],['../class_array3.html#a3420a00346475245ea8faab6a14b4ac1',1,'Array3::Array3()']]],
-  ['array3_2eh_16',['array3.h',['../array3_8h.html',1,'']]],
-  ['array4_17',['Array4',['../class_array4.html',1,'Array4&lt; T &gt;'],['../class_array4.html#a358a2713784caad6b61f7968585d1fcf',1,'Array4::Array4()']]],
-  ['array4_20—_20evolución_20del_20arreglo_20dinámico_18',['&lt;span class=&quot;tt&quot;&gt;Array1&lt;/span&gt; → &lt;span class=&quot;tt&quot;&gt;Array4&lt;/span&gt; — Evolución del arreglo dinámico',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
-  ['array4_2eh_19',['array4.h',['../array4_8h.html',1,'']]],
-  ['arreglo_20dinámico_20',['&lt;span class=&quot;tt&quot;&gt;Array1&lt;/span&gt; → &lt;span class=&quot;tt&quot;&gt;Array4&lt;/span&gt; — Evolución del arreglo dinámico',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]],
-  ['avanzada_21',['PROG-AVZ-MCC-004 — Programación Avanzada',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['avz_20mcc_20004_20—_20programación_20avanzada_22',['PROG-AVZ-MCC-004 — Programación Avanzada',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['_5f_5fhas_5finclude_0',['__has_include',['../_c_make_c_compiler_id_8c.html#ae5510d82e4946f1656f4969911c54736',1,'__has_include:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#ae5510d82e4946f1656f4969911c54736',1,'__has_include:&#160;CMakeCXXCompilerId.cpp']]]
 ];

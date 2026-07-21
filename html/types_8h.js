@@ -17,5 +17,6 @@ var types_8h =
     [ "TD", "types_8h.html#aea19b2690b7b0b2c24f1dbd12e686f3b", null ],
     [ "TI", "types_8h.html#a6dd649a724ccc0e9b7677c4515450443", null ],
     [ "TP", "types_8h.html#ac37f4d103d1bf20a6736b64447e07b7f", null ],
+    [ "TS", "types_8h.html#a0876f1c58d26467102c6644bc43a0f43", null ],
     [ "U1", "types_8h.html#a9df2b132b55c3a00c4bd1abcc96e44e9", null ]
 ];

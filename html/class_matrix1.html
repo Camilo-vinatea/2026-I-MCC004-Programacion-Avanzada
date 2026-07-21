@@ -270,11 +270,11 @@ template&lt;typename Func, typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Aplica <span class="tt">func(m_pMat[i][j], args...)</span> a cada elemento.</p>
-<p>Ejemplos: </p><div class="fragment"><div class="line">mat.ApplyFunctionToAll(<a class="code hl_function" href="_pointers_8cpp.html#ac3e1bac65cc1061e231477e7be2acc8f">Square&lt;int&gt;</a>);          <span class="comment">// n *= n</span></div>
+<p>Ejemplos: </p><div class="fragment"><div class="line">mat.ApplyFunctionToAll(<a class="code hl_class" href="class_square.html">Square&lt;int&gt;</a>);          <span class="comment">// n *= n</span></div>
 <div class="line">mat.ApplyFunctionToAll(<a class="code hl_function" href="_pointers_8cpp.html#ae63425a68efde144f5d53ebd65638924">AddX&lt;int&gt;</a>, 5, 10);     <span class="comment">// n += 15</span></div>
 <div class="line">mat.ApplyFunctionToAll(<a class="code hl_function" href="matrix1_8h.html#aa853d02f39991f30b130123f8d40e1c9">PrintM&lt;int&gt;</a>, cout);    <span class="comment">// imprime cada elemento</span></div>
-<div class="ttc" id="a_pointers_8cpp_html_ac3e1bac65cc1061e231477e7be2acc8f"><div class="ttname"><a href="_pointers_8cpp.html#ac3e1bac65cc1061e231477e7be2acc8f">Square</a></div><div class="ttdeci">void Square(T &amp;n)</div><div class="ttdef"><b>Definition</b> Pointers.cpp:24</div></div>
 <div class="ttc" id="a_pointers_8cpp_html_ae63425a68efde144f5d53ebd65638924"><div class="ttname"><a href="_pointers_8cpp.html#ae63425a68efde144f5d53ebd65638924">AddX</a></div><div class="ttdeci">void AddX(T &amp;n, T val1, T val2)</div><div class="ttdef"><b>Definition</b> Pointers.cpp:21</div></div>
+<div class="ttc" id="aclass_square_html"><div class="ttname"><a href="class_square.html">Square</a></div><div class="ttdef"><b>Definition</b> square.h:7</div></div>
 <div class="ttc" id="amatrix1_8h_html_aa853d02f39991f30b130123f8d40e1c9"><div class="ttname"><a href="matrix1_8h.html#aa853d02f39991f30b130123f8d40e1c9">PrintM</a></div><div class="ttdeci">void PrintM(T &amp;n, ostream &amp;os)</div><div class="ttdoc">Imprime un elemento seguido de espacio. Para usar con ApplyFunctionToAll.</div><div class="ttdef"><b>Definition</b> matrix1.h:12</div></div>
 </div><!-- fragment --> 
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['distance_0',['Distance',['../types_8h.html#a225ba7cee6a707c34bcdb83ef131b03f',1,'types.h']]]
+  ['clock_0',['Clock',['../performance_8cpp.html#accf829b29dcee7a09273bd9101f04e89',1,'performance.cpp']]]
 ];

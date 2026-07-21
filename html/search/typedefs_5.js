@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['realtype_0',['RealType',['../types_8h.html#a51898ad9e46b1265f3fab67f7d4b04a2',1,'types.h']]]
+  ['imagtype_0',['ImagType',['../types_8h.html#a7433637fdfd4b4092ef110f6125e0a12',1,'types.h']]]
 ];

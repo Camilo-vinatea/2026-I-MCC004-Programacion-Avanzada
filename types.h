@@ -1,6 +1,7 @@
 #ifndef __TYPES_H__
 #define __TYPES_H__
 #include <cstdint>
+#include <string>
 
 // 3 Castro Chaupis, Armando Cristhian <armandocristhiancastrochaupis@gmail.com>,
 using T3F = float;
@@ -29,6 +30,8 @@ using TI = int;
 using TP = int;
 using TD = double;
 using TC = char;
+
+using TS = std::string;
 
 #endif // __TYPES_H__
 

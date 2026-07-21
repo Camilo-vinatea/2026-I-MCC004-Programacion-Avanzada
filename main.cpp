@@ -10,6 +10,9 @@
 
 using namespace std;
 
+void DemoPerformance();  // performance.cpp
+void DemoRegex();        // regexdemo.cpp
+
 // Ernesto Cuadros
 // g++ -std=c++2b main.cpp util.cpp -o main
 int main() {
@@ -23,6 +26,8 @@ int main() {
     // DemoPointersVector3();
     // DemoPointersVector4();
     // DemoPointersVector5();
-    DemoPointersMatrix1();
+    // DemoPointersMatrix1();
+    DemoPerformance();
+    DemoRegex();
     return 0;
 }

@@ -1,13 +1,14 @@
 var indexSectionsWithContent =
 {
-  0: "*012abcdefgimnoprstuv~—→",
-  1: "*acmr",
+  0: "*012_abcdefghimnoprstuv~—→",
+  1: "*acmrst",
   2: "ds",
-  3: "abcdfmprstu",
+  3: "abcdfmprstuv",
   4: "abcdefgmoprstv~",
-  5: "cemn",
-  6: "abdfirstu",
-  7: "012abcdefimprstu—→"
+  5: "ceimn",
+  6: "abcdfirstu",
+  7: "_acdhmpsv",
+  8: "012abcdefimprstu—→"
 };
 
 var indexSectionNames =
@@ -19,7 +20,8 @@ var indexSectionNames =
   4: "functions",
   5: "variables",
   6: "typedefs",
-  7: "pages"
+  7: "defines",
+  8: "pages"
 };
 
 var indexSectionLabels =
@@ -31,6 +33,7 @@ var indexSectionLabels =
   4: "Functions",
   5: "Variables",
   6: "Typedefs",
-  7: "Pages"
+  7: "Macros",
+  8: "Pages"
 };
 
