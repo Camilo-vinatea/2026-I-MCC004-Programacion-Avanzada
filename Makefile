@@ -50,4 +50,9 @@ gpu:
 	        performance.cpp -o performance_gpu
 	@echo "Ejecutar: ./performance_gpu"
 
-.PHONY: all clean python_module demovtk run-demovtk gpu
+# Doxygen: HTML con gráficos (needs doxygen + graphviz/dot). Salida en docs/html.
+docs:
+	doxygen Doxyfile
+	@echo "Abrir: docs/html/index.html"
+
+.PHONY: all clean python_module demovtk run-demovtk gpu docs

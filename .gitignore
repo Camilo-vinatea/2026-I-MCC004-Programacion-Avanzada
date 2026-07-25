@@ -47,3 +47,5 @@ main
 build
 html
 latex
+docs/
+build-vtk/
